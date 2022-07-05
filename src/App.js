@@ -4,50 +4,38 @@ import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
 import { FaFacebookMessenger } from "@react-icons/all-files/fa/FaFacebookMessenger";
 import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
 import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
-import { FaPortrait } from "@react-icons/all-files/fa/FaGithub";
-import { FaImages } from "@react-icons/all-files/fa/FaImages";
-import { FaCheck } from "@react-icons/all-files/fa/FaCheck";
-import { FaBullseye } from "@react-icons/all-files/fa/FaBullseye";
-import { FaHeart } from "@react-icons/all-files/fa/FaHeart";
+import { FaUserCheck } from "@react-icons/all-files/fa/FaUserCheck";
+import { FaCrosshairs } from "@react-icons/all-files/fa/FaCrosshairs";
+import { FaThumbsUp } from "@react-icons/all-files/fa/FaThumbsUp";
+import { FaAddressCard } from "@react-icons/all-files/fa/FaAddressCard";
 
 function App() {
-  // show selt
-  // document.getElementById("showInfoSelt").onclick = function () {
-  //   document.getElementById("contentInfoSelt").style.display = 'none';
-  // };
 
-  // document.getElementById("showInfoSelt").onclick = function () {
-  //   document.getElementById("contentInfoSelt").style.display = 'block';
-  // };
+  function handleShowSelf() {
+    var x = document.getElementById("contentInfoSelt").style.display = "block";
 
-  // show result
-
-  // document.getElementById("showInfoResult").onclick = function () {
-  //   document.getElementById("contentInfoResult").style.display = 'none';
-  // };
-
-  // document.getElementById("showInfoResult").onclick = function () {
-  //   document.getElementById("contentInfoResult").style.display = 'block';
-  // };
-
-  // show target
-  // document.getElementById("showInfoTarget").onclick = function () {
-  //   document.getElementById("contentInfoTarget").style.display = 'none';
-  // };
-
-  // document.getElementById("showInfoTarget").onclick = function () {
-  //   document.getElementById("contentInfoTarget").style.display = 'block';
-  // };
-
-  // show interests
-  // document.getElementById("showInfoInterests").onclick = function () {
-  //   document.getElementById("contentInfoInterests").style.display = 'none';
-  // };
-
-  // document.getElementById("showInfoInterests").onclick = function () {
-  //   document.getElementById("contentInfoInterests").style.display = 'block';
-  // };
-
+    var y = document.getElementById("contentInfoResult").style.display = "none";
+    var z = document.getElementById("contentInfoTarget").style.display = "none";
+    var f = document.getElementById("contentInfoInterests").style.display = "none";
+  }
+  function handleShowResult() {
+    var y = document.getElementById("contentInfoResult").style.display = "block";
+    var x = document.getElementById("contentInfoSelt").style.display = "none";
+    var z = document.getElementById("contentInfoTarget").style.display = "none";
+    var f = document.getElementById("contentInfoInterests").style.display = "none";
+  }
+  function handleShowTarget() {
+    var z = document.getElementById("contentInfoTarget").style.display = "block";
+    var y = document.getElementById("contentInfoResult").style.display = "none";
+    var x = document.getElementById("contentInfoSelt").style.display = "none";
+    var f = document.getElementById("contentInfoInterests").style.display = "none";
+  }
+  function handleshowInterest() {
+    var f = document.getElementById("contentInfoInterests").style.display = "block";
+    var z = document.getElementById("contentInfoTarget").style.display = "none";
+    var y = document.getElementById("contentInfoResult").style.display = "none";
+    var x = document.getElementById("contentInfoSelt").style.display = "none";
+  }
   return (
 
     <div className='main'>
@@ -116,32 +104,31 @@ function App() {
         <div className='row containern'>
           <div className='container__selection-all col l-2 m-12 c-12 '>
             <div className='container__selection '>
-              <div className='container__selection-item' id='showInfoSelt'>
-                <p>
-                  <i className='icon-self'><FaImages /></i>
+              <div className='container__selection-item' onClick={handleShowSelf}>
+                <p className='contaier-selection-item-selt'>
+                  <i className='icon-self'><FaAddressCard /></i>
                 </p>
                 <span className='title-selt'>Bản Thân</span>
               </div>
-              <div className='container__selection-item' id='showInfoResult'>
-                <p>
-                  <i className='icon-result'><FaCheck /></i>
+              <div className='container__selection-item' onClick={handleShowResult}>
+                <p className='container-selection-item-result'>
+                  <i className='icon-result'><FaUserCheck /></i>
                 </p>
                 <span className='title-result'>Kết Quả</span>
               </div>
-              <div className='container__selection-item' id='showInfoTarget'>
-                <p>
-                  <i className='icon-target'><FaBullseye /></i>
+              <div className='container__selection-item' onClick={handleShowTarget}>
+                <p className='container-selection-item-target'>
+                  <i className='icon-target'><FaCrosshairs /></i>
                 </p>
                 <span className='title-target'>Mục Tiêu</span>
               </div>
-              <div className='container__selection-item' id='showInfoInterests'>
-                <p>
-                  <i className='icon-interests'><FaHeart /></i>
+              <div className='container__selection-item' onClick={handleshowInterest}>
+                <p className='container-selection-item-interest'>
+                  <i className='icon-interests'><FaThumbsUp /></i>
                 </p>
                 <span className='title-interest'>Sở Thích</span>
               </div>
             </div>
-
           </div>
           <div className='container__content-all col l-10 m-12 c-12'>
             <div className='container__content' id='contentInfoSelt'>
@@ -165,21 +152,21 @@ function App() {
                     <img className='img-project-toeic' />
                   </div>
                   <br></br>
-                  <span className='name-website'>WebSite Luyện Thi Toeic</span>
+                  <span className='name-website'><a href=''></a>WebSite Luyện Thi Toeic</span>
                 </div>
                 <div className='container-content-img col l-6 m-6 c-12'>
                   <div className='img-link'>
                     <img className='img-project-shopee' />
                   </div>
                   <br></br>
-                  <span className='name-website'>Shopee Clone</span>
+                  <span className='name-website'><a href=''></a>Shopee Clone</span>
                 </div>
                 <div className='container-content-img col l-6 m-6 c-12'>
                   <div className='img-link'>
                     <img className='img-project-profile' />
                   </div>
                   <br></br>
-                  <span className='name-website'>Profile</span>
+                  <span className='name-website'><a href=''></a>Profile</span>
                 </div>
               </div>
             </div>
