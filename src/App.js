@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+// import './reponsive.css';
+
 import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
 import { FaFacebookMessenger } from "@react-icons/all-files/fa/FaFacebookMessenger";
 import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
@@ -9,29 +11,56 @@ import { FaCrosshairs } from "@react-icons/all-files/fa/FaCrosshairs";
 import { FaThumbsUp } from "@react-icons/all-files/fa/FaThumbsUp";
 import { FaAddressCard } from "@react-icons/all-files/fa/FaAddressCard";
 
-function App() {
 
+function App() {
+  function defaultShowSelt() {
+    var defaultShowSelt = document.getElementById("contentInfoSelt").style.display = "block";
+  }
   function handleShowSelf() {
     var x = document.getElementById("contentInfoSelt").style.display = "block";
-
+    if (x) {
+      document.getElementById("Selt").style.background = "rgb(204 196 196)";
+      document.getElementById("Interest").style.background = "rgba(255, 255, 255, 0.5)";
+      document.getElementById("Target").style.background = "rgba(255, 255, 255, 0.5)";
+      document.getElementById("Result").style.background = "rgba(255, 255, 255, 0.5)";
+    }
     var y = document.getElementById("contentInfoResult").style.display = "none";
     var z = document.getElementById("contentInfoTarget").style.display = "none";
     var f = document.getElementById("contentInfoInterests").style.display = "none";
   }
   function handleShowResult() {
+
     var y = document.getElementById("contentInfoResult").style.display = "block";
+    if (y) {
+      document.getElementById("Result").style.background = "rgb(204 196 196)";
+      document.getElementById("Interest").style.background = "rgba(255, 255, 255, 0.5)";
+      document.getElementById("Target").style.background = "rgba(255, 255, 255, 0.5)";
+      document.getElementById("Selt").style.background = "rgba(255, 255, 255, 0.5)";
+    }
     var x = document.getElementById("contentInfoSelt").style.display = "none";
     var z = document.getElementById("contentInfoTarget").style.display = "none";
     var f = document.getElementById("contentInfoInterests").style.display = "none";
   }
   function handleShowTarget() {
     var z = document.getElementById("contentInfoTarget").style.display = "block";
+    if (z) {
+      document.getElementById("Target").style.background = "rgb(204 196 196)";
+      document.getElementById("Interest").style.background = "rgba(255, 255, 255, 0.5)";
+      document.getElementById("Result").style.background = "rgba(255, 255, 255, 0.5)";
+      document.getElementById("Selt").style.background = "rgba(255, 255, 255, 0.5)";
+    }
     var y = document.getElementById("contentInfoResult").style.display = "none";
     var x = document.getElementById("contentInfoSelt").style.display = "none";
     var f = document.getElementById("contentInfoInterests").style.display = "none";
   }
   function handleshowInterest() {
     var f = document.getElementById("contentInfoInterests").style.display = "block";
+    if (f) {
+      document.getElementById("Interest").style.background = "rgb(204 196 196)";
+      document.getElementById("Target").style.background = "rgba(255, 255, 255, 0.5)";
+      document.getElementById("Result").style.background = "rgba(255, 255, 255, 0.5)";
+      document.getElementById("Selt").style.background = "rgba(255, 255, 255, 0.5)";
+    }
     var z = document.getElementById("contentInfoTarget").style.display = "none";
     var y = document.getElementById("contentInfoResult").style.display = "none";
     var x = document.getElementById("contentInfoSelt").style.display = "none";
@@ -104,25 +133,25 @@ function App() {
         <div className='row containern'>
           <div className='container__selection-all col l-2 m-12 c-12 '>
             <div className='container__selection '>
-              <div className='container__selection-item' onClick={handleShowSelf}>
+              <div className='container__selection-item' onClick={handleShowSelf} id="Selt">
                 <p className='contaier-selection-item-selt'>
                   <i className='icon-self'><FaAddressCard /></i>
                 </p>
                 <span className='title-selt'>Bản Thân</span>
               </div>
-              <div className='container__selection-item' onClick={handleShowResult}>
+              <div className='container__selection-item' onClick={handleShowResult} id="Result">
                 <p className='container-selection-item-result'>
                   <i className='icon-result'><FaUserCheck /></i>
                 </p>
                 <span className='title-result'>Kết Quả</span>
               </div>
-              <div className='container__selection-item' onClick={handleShowTarget}>
+              <div className='container__selection-item' onClick={handleShowTarget} id="Target">
                 <p className='container-selection-item-target'>
                   <i className='icon-target'><FaCrosshairs /></i>
                 </p>
                 <span className='title-target'>Mục Tiêu</span>
               </div>
-              <div className='container__selection-item' onClick={handleshowInterest}>
+              <div className='container__selection-item' onClick={handleshowInterest} id="Interest">
                 <p className='container-selection-item-interest'>
                   <i className='icon-interests'><FaThumbsUp /></i>
                 </p>
@@ -130,7 +159,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className='container__content-all col l-10 m-12 c-12'>
+          <div className='container__content-all col l-10 m-12 c-12' onLoad={defaultShowSelt}>
             <div className='container__content' id='contentInfoSelt'>
               <div className='container-content-info'>
                 <div className='container-content-title'>
@@ -138,7 +167,11 @@ function App() {
                 </div>
                 <div className='title-description'>
                   <br></br>
-                  <p>Tự học qua Internet,mọi kiến thức đều được tiếp thu chắt lọc.</p>
+                  <p>Sinh Viên Trường Phân Hiệu Đại Học Thủy Lợi. Trong thời gian đợi nhận bằng tốt nghiệp.</p>
+                  <p>Kiến thức học được trên lớp đều chưa áp dụng được mọi thành quả được học từ Internet.</p>
+                  <p>Biết Sử Dụng ReactJS Component, NodeJS Express, MySQL, SQL Server, Javascript, Java, HTML, CSS, Boostrap Cơ Bản</p>
+                  <p>Bảng Điểm Học Tập</p>
+                  <img className='transcript' />
                 </div>
               </div>
             </div>
@@ -149,21 +182,78 @@ function App() {
                 </div>
                 <div className='container-content-img col l-6 m-6 c-12'>
                   <div className='img-link'>
-                    <img className='img-project-toeic' />
+                    <div className='results-img'>
+                      <a href=' ' target="_blank">
+                        <img className='img-project-toeic' />
+                      </a>
+                      <div className='results-img-hover'>
+                        <a href='' target="_blank">
+                          <div className='display-flex'>
+                            <h1>Ngôn ngữ:</h1>
+                            <span>JavaScrip, HTML, CSS, Boostrap</span>
+                          </div>
+                          <div className='display-flex'>
+                            <h1>Công cụ sử dụng:</h1>
+                            <span> ReactJS: Class Component, Nodejs:Express, MySql <br></br>
+                            </span>
+                          </div>
+                        </a>
+                        <div className='source-code'>
+                          <a href='' target="_blank"></a>
+                          <a href='' target="_blank"> Source Code</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <br></br>
                   <span className='name-website'><a href=''></a>WebSite Luyện Thi Toeic</span>
                 </div>
                 <div className='container-content-img col l-6 m-6 c-12'>
                   <div className='img-link'>
-                    <img className='img-project-shopee' />
+                    <div className='results-img'>
+                      <a href=' ' target="_blank">
+                        <img className='img-project-shopee' />
+                      </a>
+                      <div className='results-img-hover'>
+                        <a href='' target="_blank">
+                          <div className='display-flex'>
+                            <h1>Ngôn ngữ:</h1>
+                            <span>JavaScrip, HTML, CSS</span>
+                          </div>
+                        </a>
+                        <div className='source-code'>
+                          <a href='' target="_blank"></a>
+                          <a href='' target="_blank"> Source Code</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <br></br>
                   <span className='name-website'><a href=''></a>Shopee Clone</span>
                 </div>
                 <div className='container-content-img col l-6 m-6 c-12'>
                   <div className='img-link'>
-                    <img className='img-project-profile' />
+                    <div className='results-img'>
+                      <a href=' ' target="_blank">
+                        <img className='img-project-profile' />
+                      </a>
+                      <div className='results-img-hover'>
+                        <a href='' target="_blank">
+                          <div className='display-flex'>
+                            <h1>Ngôn ngữ:</h1>
+                            <span>JavaScrip, HTML, CSS</span>
+                          </div>
+                          <div className='display-flex'>
+                            <h1>Thư Viện Framework:</h1>
+                            <span>ReactJS</span>
+                          </div>
+                        </a>
+                        <div className='source-code'>
+                          <a href='' target="_blank"></a>
+                          <a href='' target="_blank"> Source Code</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <br></br>
                   <span className='name-website'><a href=''></a>Profile</span>
@@ -174,34 +264,27 @@ function App() {
               <div className='container-target'>
                 <h1 className='title-target'>Mục Tiêu</h1>
                 <h2 className='have-learned'>Học HTMl - CSS - Javascript cơ bản</h2>
-                <h4 className='date-success-target'>01/04/2022(Hoàn thành)</h4>
+                <h4 className='date-success-target'>5/11/2021(Hoàn thành)</h4>
                 <p className='content-target'>
                   Là ngôn ngữ để bắt đầu bước vào con đường lập trình HTML và CSS có mối tương quan mật thiết.
                   HTML là nền tảng của site và CSS giúp định hình phong cách (tất cả những gì tạo nên giao diện website).
                   Hai yếu tố này hoàn toàn không thể tách rời. HTML đóng vai trò cung cấp cấu trúc nội dung và xác định nội dung đó.
                   Các nội dung này có thể kể đến như tiêu đề, đoạn văn hoặc hình ảnh.
                 </p>
-                <h2 className='have-learned' >Học sử dụng GIT và SASS</h2>
-                <h4 className='date-success-target'>01/05/2022(Hoàn thành)</h4>
+                <h2 className='have-learned' >Học sử dụng GIT và SASS Cơ Bản</h2>
+                <h4 className='date-success-target'>6/12/2021(Hoàn thành)</h4>
                 <p className='content-target'>
                   Hiện nay, Git trở thành một trong các phần mềm quản lý mã nguồn phổ biến nhất.
                   Việc biết sử dụng Git sẽ là lợi thế lớn với nhà tuyển dụng vì độ phổ biến và sự ứng dụng cao của nó.
                   Với SASS, bạn có thể viết CSS theo thứ tự rõ ràng, quản lý các biến đã được định nghĩa sẵn,
                   các class dùng chung hay có thể tự động nén tập tin CSS lại để bạn tiết kiệm dung lượng.
                 </p>
-                <h2 className='have-learned'>Biết Sử Dụng Jquery và thuần thục Javascript</h2>
-                <h4 className='date-success-target'>01/06/2022(Trong tiến trình)</h4>
-                <p className='content-target'>
-                  Jquery và Boostrap là hai thư viện quan trọng nhất định phải học khi làm lập trình viên Front End.
-                  Việc sử dụng thuần thục hai thư viện này sẽ giúp code nhanh gọn và học ReactJS nhanh hơn.
-                  Jquery và Boostrap là hai thư viện quan trọng nhất định phải học khi làm lập trình viên Front End.
-                  Việc sử dụng thuần thục hai thư viện này sẽ giúp code nhanh gọn và học ReactJS nhanh hơn.
-                </p>
-                <h2 className='have-learned'>Học ReactJS và luyện tập Javascript</h2>
+                <h2 className='have-learned'>Học ReactJS: Hook và luyện tập Javascript</h2>
                 <h4 className='date-success-target'>01/07/2022(Trong tiến trình)</h4>
                 <p className='content-target'>
                   ReactJS là yêu cầu thiết yếu của các nhà tuyển dụng Front End, nhằm nâng cao và tối ưu hoá UI.
-                  Bên cạch đó việc nâng khả năng Javascript càng quan trọng không kém, có khả năng viết tốt Javascript mới kết hợp được tất cả kiến thức tạo ra sự trơn tru mạch lạc.
+                  Đã sử dụng ReactJS: Component cho WebSite luyện thi Toiec.
+                  Bên cạnh đó việc nâng khả năng Javascript càng quan trọng không kém, có khả năng viết tốt Javascript mới kết hợp được tất cả kiến thức tạo ra sự trơn tru mạch lạc.
                   Trong thời gian này bản thân sẽ cố gắng luyện code nhiều nhất có thể, một tuần sẽ cố gắng cho ra một sản phẩm hoàn chỉnh và sẽ được đưa vào CV.
                 </p>
               </div>
