@@ -1,7 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-// import './reponsive.css';
-
+import './reponsive.css';
 import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
 import { FaFacebookMessenger } from "@react-icons/all-files/fa/FaFacebookMessenger";
 import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
